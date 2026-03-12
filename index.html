@@ -67,12 +67,16 @@ header{position:sticky;top:0;z-index:100;padding:0 30px;height:70px;display:flex
 .sh-line{width:60px;height:3px;background:var(--gold);margin-top:15px; border-radius: 2px; transition: width 0.3s ease;}
 .sh:hover .sh-line{width: 100px;}
 
-/* Services Cards con Hover 3D */
+/* Services Cards — Informativas, no clickeables */
 .services{max-width:1100px;margin:0 auto 60px;padding:0 20px;display:grid;grid-template-columns:repeat(3,1fr);gap:25px}
-.svc{background:var(--card-t);border:1px solid var(--edge);border-radius:24px;padding:45px 30px;backdrop-filter:blur(20px);transition:all 0.4s ease; display: flex; flex-direction: column; align-items: center; position: relative;}
-.svc:hover{border-color:var(--gold); transform: translateY(-8px); box-shadow: var(--shadow-premium);}
-.svc-name{font-family:"Fraunces",serif;font-size:1.3rem;font-weight:700;margin-bottom:15px; color: var(--gold2);}
-.svc-desc{font-size:.9rem;color:var(--soft-t); line-height: 1.7;}
+.svc{background:var(--card-t);border:1px solid var(--edge);border-radius:24px;padding:50px 30px 40px;backdrop-filter:blur(20px);display:flex;flex-direction:column;align-items:center;position:relative;cursor:default;}
+.svc-icon{width:64px;height:64px;margin-bottom:28px;display:flex;align-items:center;justify-content:center;border-radius:18px;background:rgba(255,255,255,0.03);border:1px solid var(--edge);}
+.svc-icon svg{width:30px;height:30px;stroke-width:1.4;fill:none;}
+.svc-icon.gold svg{stroke:var(--gold);}
+.svc-icon.teal svg{stroke:var(--teal);}
+.svc-icon.soft svg{stroke:var(--soft-t);}
+.svc-name{font-family:"Fraunces",serif;font-size:1.3rem;font-weight:700;margin-bottom:15px;color:var(--gold2);}
+.svc-desc{font-size:.9rem;color:var(--soft-t);line-height:1.7;}
 
 /* Stack con Tooltip sutil */
 .stack-grid{display:flex; flex-wrap:wrap; gap:10px; justify-content:center; margin-top:25px;}
@@ -142,14 +146,23 @@ footer{border-top:1px solid var(--edge);padding:80px 20px;background:transparent
 
   <div class="services">
     <div class="svc">
+      <div class="svc-icon gold">
+        <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><polyline points="16 18 22 12 16 6"/><polyline points="8 6 2 12 8 18"/></svg>
+      </div>
       <div class="svc-name" data-es="Software a Medida" data-en="Custom Software">Software a Medida</div>
       <div class="svc-desc" data-es="Creación de aplicaciones web y de escritorio utilizando Java y JavaScript. Código escalable diseñado para durar." data-en="Web and desktop applications built with Java and JavaScript. Scalable code designed to last.">Creación de aplicaciones web y de escritorio utilizando Java y JavaScript. Código escalable diseñado para durar.</div>
     </div>
     <div class="svc">
+      <div class="svc-icon teal">
+        <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M12 2L2 7l10 5 10-5-10-5z"/><path d="M2 17l10 5 10-5"/><path d="M2 12l10 5 10-5"/></svg>
+      </div>
       <div class="svc-name" data-es="Automatización" data-en="Automation">Automatización</div>
       <div class="svc-desc" data-es="Scripts avanzados en Python para optimización de tareas, procesamiento de datos y herramientas de seguridad." data-en="Advanced Python scripts for task optimization, data processing, and security tools.">Scripts avanzados en Python para optimización de tareas, procesamiento de datos y herramientas de seguridad.</div>
     </div>
     <div class="svc">
+      <div class="svc-icon soft">
+        <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><rect x="2" y="3" width="20" height="14" rx="2"/><path d="M8 21h8"/><path d="M12 17v4"/></svg>
+      </div>
       <div class="svc-name" data-es="Entornos & Core" data-en="Environments & Core">Entornos & Core</div>
       <div class="svc-desc" data-es="Administración y hardening de sistemas Linux. Despliegue seguro de infraestructura técnica." data-en="Linux system administration and hardening. Secure deployment of technical infrastructure.">Administración y hardening de sistemas Linux. Despliegue seguro de infraestructura técnica.</div>
       <div class="stack-grid">
