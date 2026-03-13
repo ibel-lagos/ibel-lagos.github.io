@@ -1,237 +1,87 @@
-<!DOCTYPE html>
-<html lang="es">
-<head>
-<meta charset="UTF-8"/>
-<meta name="viewport" content="width=device-width,initial-scale=1.0"/>
-<title>Ibel Lagos | Dev & Security</title>
-<meta name="description" content="Desarrollo web y automatización con mentalidad de ciberseguridad. Soluciones robustas por Ibel Lagos.">
+<!DOCTYPE html><html lang="es"><head><meta charset="UTF-8"/><meta name="viewport" content="width=device-width,initial-scale=1.0"/><title>Ibel Lagos | Dev & Security</title>
 
+<meta http-equiv="X-Content-Type-Options" content="nosniff">
+<meta http-equiv="X-Frame-Options" content="DENY">
+<meta name="referrer" content="no-referrer">
+
+<meta name="description" content="Secure web development and automation. Robust solutions by Ibel Lagos.">
 <link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,300;0,9..144,700;0,9..144,900;1,9..144,400&family=Space+Mono:wght@400;700&family=Plus+Jakarta+Sans:wght@300;400;500;600;800&display=swap" rel="stylesheet"/>
-
 <style>
-:root {
-  --ink:#040609; 
-  --edge:rgba(255,255,255,.08);
-  --gold:#e8a030;
-  --gold2:#f5c878;
-  --teal:#2ec4a0;
-  --card-t:rgba(10,14,22,.95); 
-  --soft-t:#8a99a8;
-  --txt-t:#eef0f3;
-  --wapp:#25d366;
-  --shadow-dark: 0 20px 40px rgba(0,0,0,0.6);
-  --shadow-premium: 0 10px 30px rgba(232,160,48,0.15);
-}
-
-*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
-html{scroll-behavior:smooth}
-body{font-family:"Plus Jakarta Sans",sans-serif;background-color:var(--ink);color:var(--txt-t);overflow-x:hidden;line-height:1.6;text-align:center;-webkit-font-smoothing:antialiased;}
-body::before{content:'';position:fixed;inset:0;z-index:0;pointer-events:none;opacity:.045;background-image:url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noise'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noise)'/%3E%3C/svg%3E");background-repeat:repeat;background-size:180px 180px;}
-body > *{position:relative;z-index:1;}
-
-/* Barra de Progreso Mejorada */
-#pbar{position:fixed;top:0;left:0;height:3px;width:0;z-index:9999;background:linear-gradient(90deg, var(--gold), var(--teal));box-shadow: 0 0 10px var(--teal);transition:width .1s linear}
-
-/* Header Refinado */
-header{position:sticky;top:0;z-index:100;padding:0 30px;height:70px;display:flex;align-items:center;justify-content:space-between;border-bottom:1px solid var(--edge);backdrop-filter:blur(20px) saturate(1.8);background:rgba(4,6,9,.8); transition: all 0.4s cubic-bezier(0.165, 0.84, 0.44, 1);}
-.logo-mark{display:flex;align-items:center;gap:12px;text-decoration:none;color:inherit;cursor:pointer;border:none;background:none}
-.logo-dot{width:10px;height:10px;border-radius:50%;background:var(--gold);box-shadow:0 0 15px var(--gold);animation:gdot 2.5s ease infinite;}
-.logo-text{font-family:"Fraunces",serif;font-size:1.2rem;font-weight:700;color:var(--txt-t)}
-.logo-text em{font-style:italic;color:var(--gold)}
-
-.lang-btn{font-family:"Space Mono",monospace;font-size:.65rem;letter-spacing:.15em;text-transform:uppercase;color:var(--soft-t);background:transparent;padding:8px 16px;border-radius:30px;border:1px solid var(--edge);cursor:pointer; transition: all 0.3s;}
-.lang-btn:hover{color:var(--gold); border-color: var(--gold); transform: scale(1.05);}
-
-/* Hero & Background Orbs */
-.tech-section{position:relative;overflow:hidden;background:transparent;min-height:100vh; display: flex; flex-direction: column; align-items: center; padding-bottom: 100px;}
-.tech-orb{position:absolute;border-radius:50%;pointer-events:none;filter:blur(130px);opacity:.12;animation:drift 25s ease-in-out infinite alternate}
-.tech-orb-1{width:700px;height:700px;background:radial-gradient(circle,var(--gold),transparent 70%);top:-250px;right:-200px}
-.tech-orb-2{width:500px;height:500px;background:radial-gradient(circle,var(--teal),transparent 70%);bottom:10%;left:-150px}
-
-.hero{max-width:1000px;margin:0 auto;padding:120px 20px 80px; z-index: 1; opacity: 0; transform: translateY(20px); animation: fadeIn 0.8s forwards ease-out;}
-@keyframes fadeIn { to { opacity: 1; transform: translateY(0); } }
-
-.hero-tag{display:inline-flex;align-items:center;gap:10px;font-family:"Space Mono",monospace;font-size:.6rem;letter-spacing:.2em;text-transform:uppercase;color:var(--teal);border:1px solid rgba(46,196,160,.4);background:rgba(46,196,160,.08);padding:6px 16px;border-radius:50px;margin-bottom:35px;}
-.hero h1{font-family:"Fraunces",serif;font-size:clamp(2.5rem,8vw,4.5rem);font-weight:900;line-height:1.05;margin-bottom:30px; letter-spacing: -0.04em;}
-.w2{display:block;background:linear-gradient(110deg,var(--gold),var(--gold2),var(--teal));background-size:200% auto;-webkit-background-clip:text;-webkit-text-fill-color:transparent;animation:shimmer 6s linear infinite}
-.w3{display:block; font-size: 0.45em; opacity: 0.6; margin-top: 20px; font-family: "Space Mono", monospace; color: var(--soft-t);}
-
-/* WhatsApp Button con Pulso */
-.btn-wapp{display:inline-flex;align-items:center;gap:14px;font-family:"Space Mono",monospace;font-size:.75rem;letter-spacing:.12em;text-transform:uppercase;padding:20px 40px;border-radius:14px;border:none;cursor:pointer;transition:all 0.3s cubic-bezier(0.23, 1, 0.32, 1); font-weight: 700; text-decoration: none; background:var(--wapp); color: #000; position: relative; overflow: hidden;}
-.btn-wapp:hover{transform:translateY(-4px); box-shadow: 0 15px 35px rgba(37, 211, 102, 0.4);}
-.btn-wapp svg{width: 22px; height: 22px; fill: currentColor;}
-
-/* Secciones */
-.sh{max-width:960px;width:100%;margin:0 auto;padding:80px 20px 40px;display:flex;flex-direction:column;align-items:center;}
-.sh-title{font-family:"Fraunces",serif;font-size:2.2rem;font-weight:700;}
-.sh-line{width:60px;height:3px;background:var(--gold);margin-top:15px; border-radius: 2px; transition: width 0.3s ease;}
-.sh:hover .sh-line{width: 100px;}
-
-/* Services Cards — Informativas, no clickeables */
-.services{max-width:1100px;margin:0 auto 60px;padding:0 20px;display:grid;grid-template-columns:repeat(3,1fr);gap:25px}
-.svc{background:var(--card-t);border:1px solid var(--edge);border-radius:24px;padding:50px 30px 40px;backdrop-filter:blur(20px);display:flex;flex-direction:column;align-items:center;position:relative;cursor:default;}
-.svc-icon{width:64px;height:64px;margin-bottom:28px;display:flex;align-items:center;justify-content:center;border-radius:18px;background:rgba(255,255,255,0.03);border:1px solid var(--edge);}
-.svc-icon svg{width:30px;height:30px;stroke-width:1.4;fill:none;}
-.svc-icon.gold svg{stroke:var(--gold);}
-.svc-icon.teal svg{stroke:var(--teal);}
-.svc-icon.soft svg{stroke:var(--soft-t);}
-.svc-name{font-family:"Fraunces",serif;font-size:1.3rem;font-weight:700;margin-bottom:15px;color:var(--gold2);}
-.svc-desc{font-size:.9rem;color:var(--soft-t);line-height:1.7;}
-
-/* Stack con Tooltip sutil */
-.stack-grid{display:flex; flex-wrap:wrap; gap:10px; justify-content:center; margin-top:25px;}
-.stack-item{background: rgba(255,255,255,0.03); padding: 6px 12px; border-radius: 6px; border: 1px solid var(--edge); color: var(--teal); font-family:"Space Mono",monospace; font-size: 0.65rem; text-transform: uppercase; transition: 0.3s;}
-.stack-item:hover{background: rgba(46,196,160,0.1); border-color: var(--teal);}
-
-/* About Bridge Refinado */
-.about-bridge{max-width: 800px; margin: 60px auto 120px; padding: 60px 40px; border: 1px solid var(--edge); border-radius: 28px; background: linear-gradient(180deg, rgba(255,255,255,0.02) 0%, transparent 100%);}
-.bridge-btn{display:inline-flex;align-items:center;gap:12px;color:var(--teal);text-decoration:none;font-size:.85rem;font-family:"Space Mono",monospace;padding:14px 28px;border:1px solid var(--teal);border-radius:50px;transition:all 0.3s ease; position: relative;}
-.bridge-btn:hover{background:var(--teal); color: var(--ink); font-weight: 700;}
-
-/* Footer */
-footer{border-top:1px solid var(--edge);padding:80px 20px;background:transparent;}
-.social-group{display:flex;justify-content:center;gap:30px;margin-bottom:40px;}
-.social-t{color:var(--soft-t); text-decoration: none; transition: 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);}
-.social-t:hover{color:var(--gold); transform: scale(1.2) rotate(5deg);}
-.social-t svg{width: 26px; height: 26px; fill: currentColor;}
-
-@keyframes shimmer{to{background-position:200% center}}
-@keyframes gdot{0%,100%{opacity:1;transform:scale(1)}50%{opacity:.5;transform:scale(1.15)}}
-@keyframes drift{from{transform:translate(0,0)}to{transform:translate(40px,40px)}}
-
-@media(max-width:860px){ 
-  .services{grid-template-columns:1fr;} 
-  .hero{padding-top: 80px;}
-}
-</style>
-</head>
-<body>
-<div id="pbar"></div>
-
-<header id="main-header">
-  <div class="logo-mark" onclick="window.scrollTo({top:0,behavior:'smooth'})">
-    <div class="logo-dot"></div>
-    <span class="logo-text">Ibel <em>Lagos</em></span>
-  </div>
-  <button class="lang-btn" id="lang-btn" aria-label="Cambiar idioma">EN</button>
-</header>
-
-<section class="tech-section">
-  <div class="tech-orb tech-orb-1"></div>
-  <div class="tech-orb tech-orb-2"></div>
-  
-  <div class="hero">
-    <div class="hero-tag">
-        <span data-es="Dev Freelance & Ciberseguridad" data-en="Freelance Dev & Cybersecurity">Dev Freelance & Ciberseguridad</span>
-    </div>
-    <h1>
-      <span class="w1" data-es="Software seguro," data-en="Secure software,">Software seguro,</span>
-      <span class="w2" data-es="soluciones reales." data-en="real solutions.">soluciones reales.</span>
-      <span class="w3" data-es="// Hardened Development" data-en="// Hardened Development">// Hardened Development</span>
-    </h1>
-    <p class="hero-desc" style="max-width:650px; margin:0 auto 40px; color:var(--soft-t); font-size: 1.1rem;" data-es="Desarrollo aplicaciones y herramientas técnicas a medida con un enfoque absoluto en la integridad y seguridad del código." data-en="I build custom applications and technical tools with an absolute focus on code integrity and security.">
-      Desarrollo aplicaciones y herramientas técnicas a medida con un enfoque absoluto en la integridad y seguridad del código.
-    </p>
-    
-    <button class="btn-wapp" id="wa-btn">
-      <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L0 24l6.335-1.662c1.72.937 3.659 1.432 5.631 1.432h.006c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413Z"/></svg>
-      <span data-es="Contactar por WhatsApp" data-en="Contact via WhatsApp">Contactar por WhatsApp</span>
-    </button>
-  </div>
-
-  <div class="sh" id="services">
-    <span class="sh-title" data-es="Servicios" data-en="Services">Servicios</span>
-    <div class="sh-line"></div>
-  </div>
-
-  <div class="services">
-    <div class="svc">
-      <div class="svc-icon gold">
-        <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><polyline points="16 18 22 12 16 6"/><polyline points="8 6 2 12 8 18"/></svg>
-      </div>
-      <div class="svc-name" data-es="Software a Medida" data-en="Custom Software">Software a Medida</div>
-      <div class="svc-desc" data-es="Creación de aplicaciones web y de escritorio utilizando Java y JavaScript. Código escalable diseñado para durar." data-en="Web and desktop applications built with Java and JavaScript. Scalable code designed to last.">Creación de aplicaciones web y de escritorio utilizando Java y JavaScript. Código escalable diseñado para durar.</div>
-    </div>
-    <div class="svc">
-      <div class="svc-icon teal">
-        <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M12 2L2 7l10 5 10-5-10-5z"/><path d="M2 17l10 5 10-5"/><path d="M2 12l10 5 10-5"/></svg>
-      </div>
-      <div class="svc-name" data-es="Automatización" data-en="Automation">Automatización</div>
-      <div class="svc-desc" data-es="Scripts avanzados en Python para optimización de tareas, procesamiento de datos y herramientas de seguridad." data-en="Advanced Python scripts for task optimization, data processing, and security tools.">Scripts avanzados en Python para optimización de tareas, procesamiento de datos y herramientas de seguridad.</div>
-    </div>
-    <div class="svc">
-      <div class="svc-icon soft">
-        <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><rect x="2" y="3" width="20" height="14" rx="2"/><path d="M8 21h8"/><path d="M12 17v4"/></svg>
-      </div>
-      <div class="svc-name" data-es="Entornos & Core" data-en="Environments & Core">Entornos & Core</div>
-      <div class="svc-desc" data-es="Administración y hardening de sistemas Linux. Despliegue seguro de infraestructura técnica." data-en="Linux system administration and hardening. Secure deployment of technical infrastructure.">Administración y hardening de sistemas Linux. Despliegue seguro de infraestructura técnica.</div>
-      <div class="stack-grid">
-        <span class="stack-item">Java</span><span class="stack-item">Python</span><span class="stack-item">JS</span><span class="stack-item">Linux</span><span class="stack-item">SQL</span><span class="stack-item">Bash</span>
-      </div>
-    </div>
-  </div>
-
-  <footer>
-    <div class="social-group">
-      <a class="social-t" href="https://github.com/ibel-lagos" target="_blank" rel="noopener noreferrer" aria-label="GitHub">
-        <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M12 .297c-6.63 0-12 5.373-12 12 0 5.303 3.438 9.8 8.205 11.385.6.113.82-.258.82-.577 0-.285-.01-1.04-.015-2.04-3.338.724-4.042-1.61-4.042-1.61C4.422 18.07 3.633 17.7 3.633 17.7c-1.087-.744.084-.729.084-.729 1.205.084 1.838 1.236 1.838 1.236 1.07 1.835 2.809 1.305 3.495.998.108-.776.417-1.305.76-1.605-2.665-.3-5.466-1.332-5.466-5.93 0-1.31.465-2.38 1.235-3.22-.135-.303-.54-1.523.105-3.176 0 0 1.005-.322 3.3 1.23.96-.267 1.98-.399 3-.405 1.02.006 2.04.138 3 .405 2.28-1.552 3.285-1.23 3.285-1.23.645 1.653.24 2.873.12 3.176.765.84 1.23 1.91 1.23 3.22 0 4.61-2.805 5.625-5.475 5.92.42.36.81 1.096.81 2.22 0 1.606-.015 2.896-.015 3.286 0 .315.21.69.825.57C20.565 22.092 24 17.592 24 12.297c0-6.627-5.373-12-12-12"/></svg>
-      </a>
-      <a class="social-t" href="https://www.linkedin.com/in/ibel-lagos" target="_blank" rel="noopener noreferrer" aria-label="LinkedIn">
-        <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M19 0h-14c-2.761 0-5 2.239-5 5v14c0 2.761 2.239 5 5 5h14c2.762 0 5-2.239 5-5v-14c0-2.761-2.238-5-5-5zm-11 19h-3v-11h3v11zm-1.5-12.268c-.966 0-1.75-.79-1.75-1.764s.784-1.764 1.75-1.764 1.75.79 1.75 1.764-.783 1.764-1.75 1.764zm13.5 12.268h-3v-5.604c0-3.368-4-3.113-4 0v5.604h-3v-11h3v1.765c1.396-2.586 7-2.777 7 2.476v6.759z"/></svg>
-      </a>
-      <a class="social-t" href="https://ibel-lagos.github.io/cybersec/" target="_blank" rel="noopener noreferrer" aria-label="Portal de Ciberseguridad">
-        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" xmlns="http://www.w3.org/2000/svg"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
-      </a>
-    </div>
-    <p style="font-family:'Space Mono',monospace;font-size:.6rem;opacity:.3;margin-bottom:10px;letter-spacing:1px;" data-es="GitHub · LinkedIn · Portal Cybersec" data-en="GitHub · LinkedIn · Cybersec Portal">GitHub · LinkedIn · Portal Cybersec</p>
-    <p style="font-family:'Space Mono',monospace;font-size:.65rem;opacity:.4; letter-spacing: 1px;">© 2026 IBEL LAGOS // SECURITY & DEV // Todos los derechos reservados</p>
-  </footer>
-</section>
+/* Main Styles & Design tokens */
+:root {  --ink:#040609;   --edge:rgba(255,255,255,.08);  --gold:#e8a030;  --gold2:#f5c878;  --teal:#2ec4a0;  --card-t:rgba(10,14,22,.95);   --soft-t:#8a99a8;  --txt-t:#eef0f3;  --wapp:#25d366;  --shadow-dark: 0 20px 40px rgba(0,0,0,0.6);  --shadow-premium: 0 10px 30px rgba(232,160,48,0.15);}*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}html{scroll-behavior:smooth}body{font-family:"Plus Jakarta Sans",sans-serif;background-color:var(--ink);color:var(--txt-t);overflow-x:hidden;line-height:1.6;text-align:center;-webkit-font-smoothing:antialiased;}body::before{content:'';position:fixed;inset:0;z-index:0;pointer-events:none;opacity:.045;background-image:url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noise'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noise)'/%3E%3C/svg%3E");background-repeat:repeat;background-size:180px 180px;}body > *{position:relative;z-index:1;}#p-bar{position:fixed;top:0;left:0;height:3px;width:0;z-index:9999;background:linear-gradient(90deg, var(--gold), var(--teal));box-shadow: 0 0 10px var(--teal);transition:width .1s linear}header{position:sticky;top:0;z-index:100;padding:0 30px;height:70px;display:flex;align-items:center;justify-content:space-between;border-bottom:1px solid var(--edge);backdrop-filter:blur(20px) saturate(1.8);background:rgba(4,6,9,.8); transition: all 0.4s cubic-bezier(0.165, 0.84, 0.44, 1);}.logo-block{display:flex;align-items:center;gap:12px;text-decoration:none;color:inherit;cursor:pointer;border:none;background:none}.logo-p{width:10px;height:10px;border-radius:50%;background:var(--gold);box-shadow:0 0 15px var(--gold);animation:gdot 2.5s ease infinite;}.logo-txt{font-family:"Fraunces",serif;font-size:1.2rem;font-weight:700;color:var(--txt-t)}.logo-txt em{font-style:italic;color:var(--gold)}.l-btn{font-family:"Space Mono",monospace;font-size:.65rem;letter-spacing:.15em;text-transform:uppercase;color:var(--soft-t);background:transparent;padding:8px 16px;border-radius:30px;border:1px solid var(--edge);cursor:pointer; transition: all 0.3s;}.l-btn:hover{color:var(--gold); border-color: var(--gold); transform: scale(1.05);}.main-wrap{position:relative;overflow:hidden;background:transparent;min-height:100vh; display: flex; flex-direction: column; align-items: center; padding-bottom: 100px;}.orb{position:absolute;border-radius:50%;pointer-events:none;filter:blur(130px);opacity:.12;animation:drift 25s ease-in-out infinite alternate}.orb-1{width:700px;height:700px;background:radial-gradient(circle,var(--gold),transparent 70%);top:-250px;right:-200px}.orb-2{width:500px;height:500px;background:radial-gradient(circle,var(--teal),transparent 70%);bottom:10%;left:-150px}.hero{max-width:1000px;margin:0 auto;padding:120px 20px 80px; z-index: 1; opacity: 0; transform: translateY(20px); animation: fadeIn 0.8s forwards ease-out;}@keyframes fadeIn { to { opacity: 1; transform: translateY(0); } }.hero-tag{display:inline-flex;align-items:center;gap:10px;font-family:"Space Mono",monospace;font-size:.6rem;letter-spacing:.2em;text-transform:uppercase;color:var(--teal);border:1px solid rgba(46,196,160,.4);background:rgba(46,196,160,.08);padding:6px 16px;border-radius:50px;margin-bottom:35px;}.hero h1{font-family:"Fraunces",serif;font-size:clamp(2.5rem,8vw,4.5rem);font-weight:900;line-height:1.05;margin-bottom:30px; letter-spacing: -0.04em;}.w2{display:block;background:linear-gradient(110deg,var(--gold),var(--gold2),var(--teal));background-size:200% auto;-webkit-background-clip:text;-webkit-text-fill-color:transparent;animation:shimmer 6s linear infinite}.w3{display:block; font-size: 0.45em; opacity: 0.6; margin-top: 20px; font-family: "Space Mono", monospace; color: var(--soft-t);}.btn-contact{display:inline-flex;align-items:center;gap:14px;font-family:"Space Mono",monospace;font-size:.75rem;letter-spacing:.12em;text-transform:uppercase;padding:20px 40px;border-radius:14px;border:none;cursor:pointer;transition:all 0.3s cubic-bezier(0.23, 1, 0.32, 1); font-weight: 700; text-decoration: none; background:var(--wapp); color: #000; position: relative; overflow: hidden;}.btn-contact:hover{transform:translateY(-4px); box-shadow: 0 15px 35px rgba(37, 211, 102, 0.4);}.btn-contact svg{width: 22px; height: 22px; fill: currentColor;}.section-h{max-width:960px;width:100%;margin:0 auto;padding:80px 20px 40px;display:flex;flex-direction:column;align-items:center;}.section-h-title{font-family:"Fraunces",serif;font-size:2.2rem;font-weight:700;}.section-h-line{width:60px;height:3px;background:var(--gold);margin-top:15px; border-radius: 2px; transition: width 0.3s ease;}.section-h:hover .section-h-line{width: 100px;}.grid-services{max-width:1100px;margin:0 auto 60px;padding:0 20px;display:grid;grid-template-columns:repeat(3,1fr);gap:25px}.svc-card{background:var(--card-t);border:1px solid var(--edge);border-radius:24px;padding:50px 30px 40px;backdrop-filter:blur(20px);display:flex;flex-direction:column;align-items:center;position:relative;cursor:default;}.svc-ico{width:64px;height:64px;margin-bottom:28px;display:flex;align-items:center;justify-content:center;border-radius:18px;background:rgba(255,255,255,0.03);border:1px solid var(--edge);}.svc-ico svg{width:30px;height:30px;stroke-width:1.4;fill:none;}.svc-ico.gold svg{stroke:var(--gold);}.svc-ico.teal svg{stroke:var(--teal);}.svc-ico.soft svg{stroke:var(--soft-t);}.svc-title{font-family:"Fraunces",serif;font-size:1.3rem;font-weight:700;margin-bottom:15px;color:var(--gold2);}.svc-info{font-size:.9rem;color:var(--soft-t);line-height:1.7;}.stack-box{display:flex; flex-wrap:wrap; gap:10px; justify-content:center; margin-top:25px;}.stack-tag{background: rgba(255,255,255,0.03); padding: 6px 12px; border-radius: 6px; border: 1px solid var(--edge); color: var(--teal); font-family:"Space Mono",monospace; font-size: 0.65rem; text-transform: uppercase; transition: 0.3s;}.stack-tag:hover{background: rgba(46,196,160,0.1); border-color: var(--teal);}footer{border-top:1px solid var(--edge);padding:80px 20px;background:transparent;}.social-row{display:flex;justify-content:center;gap:30px;margin-bottom:40px;}.social-link{color:var(--soft-t); text-decoration: none; transition: 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);}.social-link:hover{color:var(--gold); transform: scale(1.2) rotate(5deg);}.social-link svg{width: 26px; height: 26px; fill: currentColor;}@keyframes shimmer{to{background-position:200% center}}@keyframes gdot{0%,100%{opacity:1;transform:scale(1)}50%{opacity:.5;transform:scale(1.15)}}@keyframes drift{from{transform:translate(0,0)}to{transform:translate(40px,40px)}}@media(max-width:860px){   .grid-services{grid-template-columns:1fr;}   .hero{padding-top: 80px;}}</style></head><body><div id="p-bar"></div><header id="main-nav">  <div class="logo-block" onclick="window.scrollTo({top:0,behavior:'smooth'})">    <div class="logo-p"></div>    <span class="logo-txt">Ibel <em>Lagos</em></span>  </div>  <button class="l-btn" id="l-toggle" aria-label="Toggle language">EN</button></header><section class="main-wrap">  <div class="orb orb-1"></div>  <div class="orb orb-2"></div>    <div class="hero">    <div class="hero-tag">        <span data-es="Dev Freelance & Ciberseguridad" data-en="Freelance Dev & Cybersecurity">Dev Freelance & Ciberseguridad</span>    </div>    <h1>      <span class="w1" data-es="Software seguro," data-en="Secure software,">Software seguro,</span>      <span class="w2" data-es="soluciones reales." data-en="real solutions.">soluciones reales.</span>      <span class="w3" data-es="// Hardened Development" data-en="// Hardened Development">// Hardened Development</span>    </h1>    <p class="hero-desc" style="max-width:650px; margin:0 auto 40px; color:var(--soft-t); font-size: 1.1rem;" data-es="Desarrollo aplicaciones y herramientas técnicas a medida con un enfoque absoluto en la integridad y seguridad del código." data-en="I build custom applications and technical tools with an absolute focus on code integrity and security.">      Desarrollo aplicaciones y herramientas técnicas a medida con un enfoque absoluto en la integridad y seguridad del código.    </p>        <button class="btn-contact" id="action-trigger">      <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L0 24l6.335-1.662c1.72.937 3.659 1.432 5.631 1.432h.006c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413Z"/></svg>      <span data-es="Contactar por WhatsApp" data-en="Contact via WhatsApp">Contactar por WhatsApp</span>    </button>  </div>  <div class="section-h" id="svc-anchor">    <span class="section-h-title" data-es="Servicios" data-en="Services">Servicios</span>    <div class="section-h-line"></div>  </div>  <div class="grid-services">    <div class="svc-card">      <div class="svc-ico gold">        <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><polyline points="16 18 22 12 16 6"/><polyline points="8 6 2 12 8 18"/></svg>      </div>      <div class="svc-title" data-es="Software a Medida" data-en="Custom Software">Software a Medida</div>      <div class="svc-info" data-es="Creación de aplicaciones web y de escritorio utilizando Java y JavaScript. Código escalable diseñado para durar." data-en="Web and desktop applications built with Java and JavaScript. Scalable code designed to last.">Creación de aplicaciones web y de escritorio utilizando Java y JavaScript. Código escalable diseñado para durar.</div>    </div>    <div class="svc-card">      <div class="svc-ico teal">        <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M12 2L2 7l10 5 10-5-10-5z"/><path d="M2 17l10 5 10-5"/><path d="M2 12l10 5 10-5"/></svg>      </div>      <div class="svc-title" data-es="Automatización" data-en="Automation">Automatización</div>      <div class="svc-info" data-es="Scripts avanzados en Python para optimización de tareas, procesamiento de datos y herramientas de seguridad." data-en="Advanced Python scripts for task optimization, data processing, and security tools.">Scripts avanzados en Python para optimización de tareas, procesamiento de datos y herramientas de seguridad.</div>    </div>    <div class="svc-card">      <div class="svc-ico soft">        <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><rect x="2" y="3" width="20" height="14" rx="2"/><path d="M8 21h8"/><path d="M12 17v4"/></svg>      </div>      <div class="svc-title" data-es="Entornos & Core" data-en="Environments & Core">Entornos & Core</div>      <div class="svc-info" data-es="Administración y hardening de sistemas Linux. Despliegue seguro de infraestructura técnica." data-en="Linux system administration and hardening. Secure deployment of technical infrastructure.">Administración y hardening de sistemas Linux. Despliegue seguro de infraestructura técnica.</div>      <div class="stack-box">        <span class="stack-tag">Java</span><span class="stack-tag">Python</span><span class="stack-tag">JS</span><span class="stack-tag">Linux</span><span class="stack-tag">SQL</span><span class="stack-tag">Bash</span>      </div>    </div>  </div>  <footer>    <div class="social-row">      <a class="social-link" href="https://github.com/ibel-lagos" target="_blank" rel="noopener noreferrer" aria-label="GitHub">        <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M12 .297c-6.63 0-12 5.373-12 12 0 5.303 3.438 9.8 8.205 11.385.6.113.82-.258.82-.577 0-.285-.01-1.04-.015-2.04-3.338.724-4.042-1.61-4.042-1.61C4.422 18.07 3.633 17.7 3.633 17.7c-1.087-.744.084-.729.084-.729 1.205.084 1.838 1.236 1.838 1.236 1.07 1.835 2.809 1.305 3.495.998.108-.776.417-1.305.76-1.605-2.665-.3-5.466-1.332-5.466-5.93 0-1.31.465-2.38 1.235-3.22-.135-.303-.54-1.523.105-3.176 0 0 1.005-.322 3.3 1.23.96-.267 1.98-.399 3-.405 1.02.006 2.04.138 3 .405 2.28-1.552 3.285-1.23 3.285-1.23.645 1.653.24 2.873.12 3.176.765.84 1.23 1.91 1.23 3.22 0 4.61-2.805 5.625-5.475 5.92.42.36.81 1.096.81 2.22 0 1.606-.015 2.896-.015 3.286 0 .315.21.69.825.57C20.565 22.092 24 17.592 24 12.297c0-6.627-5.373-12-12-12"/></svg>      </a>      <a class="social-link" href="https://www.linkedin.com/in/ibel-lagos" target="_blank" rel="noopener noreferrer" aria-label="LinkedIn">        <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M19 0h-14c-2.761 0-5 2.239-5 5v14c0 2.761 2.239 5 5 5h14c2.762 0 5-2.239 5-5v-14c0-2.761-2.238-5-5-5zm-11 19h-3v-11h3v11zm-1.5-12.268c-.966 0-1.75-.79-1.75-1.764s.784-1.764 1.75-1.764 1.75.79 1.75 1.764-.783 1.764-1.75 1.764zm13.5 12.268h-3v-5.604c0-3.368-4-3.113-4 0v5.604h-3v-11h3v1.765c1.396-2.586 7-2.777 7 2.476v6.759z"/></svg>      </a>    </div>    <p style="font-family:'Space Mono',monospace;font-size:.6rem;opacity:.3;margin-bottom:10px;letter-spacing:1px;" data-es="GitHub · LinkedIn · Portal Cybersec" data-en="GitHub · LinkedIn · Cybersec Portal">GitHub · LinkedIn · Portal Cybersec</p>    <p style="font-family:'Space Mono',monospace;font-size:.65rem;opacity:.4; letter-spacing: 1px;">© 2026 IBEL LAGOS // SECURITY & DEV // All rights reserved</p>  </footer></section>
 
 <script>
-let lang=localStorage.getItem("lang")||"es";
-const langBtn=document.getElementById("lang-btn");
+/**
+ * Hardening Implementation 
+ * Strategy: Zero-dependency, sanitized DOM, obfuscated contact.
+ */
+(function() {
+    "use strict";
 
-function setLang(){
-  document.querySelectorAll("[data-es]").forEach(el=>{
-    const v=el.dataset[lang];
-    if(v) el.innerHTML=v;
-  });
-  langBtn.textContent=lang==="es"?"EN":"ES";
-}
+    // Regex for DOM sanitization
+    const VALID_PATTERN = /^[a-zA-Z0-9\s.,!¡?¿áéíóúÁÉÍÓÚñÑ//:_\-]+$/;
 
-langBtn.addEventListener("click",()=>{
-  lang=lang==="es"?"en":"es";
-  localStorage.setItem("lang",lang);
-  setLang();
-});
+    // Language controller
+    const ALLOWED_LANGS = ["es", "en"];
+    let currentLang = localStorage.getItem("lang") || "es";
+    if (!ALLOWED_LANGS.includes(currentLang)) currentLang = "es";
 
-// WhatsApp con mensaje dinámico según idioma
-document.getElementById('wa-btn').addEventListener('click', function() {
-    const n = atob("NTQyMjg0NTY2ODM5"); 
-    const t = lang === "es" ? "Hola Ibel, vi tu portfolio y quería consultarte por un proyecto técnico." : "Hi Ibel, I saw your portfolio and I'd like to ask about a technical project.";
-    window.open(`https://wa.me/${n}?text=${encodeURIComponent(t)}`, '_blank');
-});
+    const toggleBtn = document.getElementById("l-toggle");
 
-// Barra de progreso y efectos de header
-window.addEventListener('scroll', () => {
-  const scrollH = document.documentElement.scrollHeight - window.innerHeight;
-  const scrolled = (window.scrollY / scrollH) * 100;
-  document.getElementById('pbar').style.width = scrolled + "%";
-  
-  const header = document.getElementById('main-header');
-  if (window.scrollY > 50) {
-    header.style.height = '60px';
-    header.style.background = 'rgba(4,6,9,.98)';
-    header.style.boxShadow = '0 10px 30px rgba(0,0,0,0.3)';
-  } else {
-    header.style.height = '70px';
-    header.style.background = 'rgba(4,6,9,.8)';
-    header.style.boxShadow = 'none';
-  }
-});
+    const applyLocalization = () => {
+        document.querySelectorAll("[data-es]").forEach(el => {
+            const content = el.dataset[currentLang];
+            // Hardening: Use textContent to prevent XSS
+            if(content && VALID_PATTERN.test(content)) {
+                el.textContent = content;
+            }
+        });
+        toggleBtn.textContent = currentLang === "es" ? "EN" : "ES";
+    };
 
-setLang();
-</script>
-</body>
-</html>
+    toggleBtn.addEventListener("click", () => {
+        currentLang = currentLang === "es" ? "en" : "es";
+        localStorage.setItem("lang", currentLang);
+        applyLocalization();
+    });
+
+    // Hardened Contact Logic
+    document.getElementById('action-trigger').addEventListener('click', function() {
+        // Phone number obfuscation logic
+        const p1 = "542";
+        const p2 = "2845";
+        const p3 = "66839";
+        const target = p1 + p2 + p3;
+        
+        const text = currentLang === "es" 
+            ? "Hola Ibel, vi tu portfolio y quería consultarte por un proyecto técnico." 
+            : "Hi Ibel, I saw your portfolio and I'd like to ask about a technical project.";
+        
+        // Anti-scraping delay
+        const wait = Math.floor(Math.random() * 400) + 150;
+        
+        setTimeout(() => {
+            // Tabnabbing protection applied
+            window.open(`https://wa.me/${target}?text=${encodeURIComponent(text)}`, '_blank', 'noopener,noreferrer');
+        }, wait);
+    });
+
+    // UI Feedback & Scroll logic
+    window.addEventListener('scroll', () => {
+        const docH = document.documentElement.scrollHeight - window.innerHeight;
+        const pos = (window.scrollY / docH) * 100;
+        document.getElementById('p-bar').style.width = pos + "%";
+        
+        const nav = document.getElementById('main-nav');
+        if (window.scrollY > 50) {
+            nav.style.height = '60px';
+            nav.style.background = 'rgba(4,6,9,.98)';
+        } else {
+            nav.style.height = '70px';
+            nav.style.background = 'rgba(4,6,9,.8)';
+        }
+    });
+
+    applyLocalization();
+})();
+</script></body></html>
