@@ -32,4 +32,4 @@ This project implements several security layers to ensure code integrity and use
 This project is for personal use and portfolio demonstration. Feel free to explore the security implementations.
 
 ---
-Developed with focus on **Cybersecurity & Automation** by [Ibel Lagos](https://github.com/ibel-lagos).
+Developed by [Ibel Lagos](https://github.com/ibel-lagos).
