@@ -1,36 +1,175 @@
-# Ibel Lagos | Dev & Security Portfolio 🚀
+# Ibel Lagos | Dev & Security Portfolio
 
-This repository hosts the source code for my professional site. The environment is built from the ground up under **security-by-design** principles, high performance, and a "hardened" minimalist aesthetic.
+![Security](https://img.shields.io/badge/Security-Hardened-green?style=flat-square)
+![Dependencies](https://img.shields.io/badge/Dependencies-Zero-blue?style=flat-square)
+![Stack](https://img.shields.io/badge/Stack-Vanilla_JS-yellow?style=flat-square)
+![Status](https://img.shields.io/badge/Status-Live-success?style=flat-square)
 
-🔗 **Live Demo:** [https://ibel-lagos.github.io/](https://ibel-lagos.github.io/)
+Minimalist professional portfolio built with a **security-first mindset**, optimized performance, and a hardened UI architecture.
 
----
-
-## 🛠 Tech Stack & Hardening
-
-This project is more than just a landing page; it is a practical exercise in front-end security best practices:
-
-* **UI/UX:** Dynamic CSS using custom properties, 60fps optimized animations, and premium typography (Plus Jakarta Sans & Fraunces).
-* **Security Features:**
-    * **Protocol Hardening:** Implementation of `nosniff`, `DENY` (anti-clickjacking), and `no-referrer` policies via meta-tags.
-    * **Tabnabbing Protection:** Consistent use of `rel="noopener noreferrer"` on all outbound links.
-    * **Data Obfuscation:** Custom JavaScript logic to protect sensitive contact information from automated scrapers.
-    * **DOM Sanitization:** Enforced use of `textContent` and Regex validation to neutralize XSS (Cross-Site Scripting) risks.
-* **Performance:** Zero external dependencies (Vanilla JS) to minimize the attack surface and ensure near-instant load times.
-
-## 📂 Featured Projects
-
-Explore my other technical work:
-* **[Cybersec Portfolio-Blog](https://ibel-lagos.github.io/cybersec/):** A dedicated portal for security write-ups, technical notes, and research.
-
+🔗 **Live Demo:**
+https://ibel-lagos.github.io/
 
 ---
 
-## 🛡️ Professional Profile
+# Overview
 
-Cybersecurity professional focused on building technical tools. My approach merges the agility of modern development with the rigor of information security.
+This project is a **static portfolio environment designed with security and minimal attack surface in mind**.
 
-* **Location:** Argentina.
-* **Secure Contact:** [ibeltech@protonmail.com](mailto:ibeltech@protonmail.com)
+Instead of relying on modern frameworks, the site is intentionally implemented using **pure HTML, CSS, and Vanilla JavaScript**, reducing complexity and improving auditability.
+
+Key principles:
+
+* Security-by-design
+* Zero external JavaScript dependencies
+* Minimal attack surface
+* Performance-first architecture
 
 ---
+
+# Tech Stack
+
+**Frontend**
+
+* HTML5
+* CSS3 (custom properties / design tokens)
+* Vanilla JavaScript
+
+**Typography**
+
+* Plus Jakarta Sans
+* Fraunces
+
+**Environment**
+
+* Static deployment (GitHub Pages)
+
+---
+
+# Security Hardening
+
+This portfolio includes lightweight client-side hardening techniques commonly used in secure web environments.
+
+### Security Headers
+
+Implemented through meta tags:
+
+* `X-Content-Type-Options: nosniff`
+* `X-Frame-Options: DENY`
+* `Referrer-Policy: no-referrer`
+
+These help mitigate:
+
+* MIME sniffing
+* clickjacking
+* unnecessary referrer leakage
+
+---
+
+### DOM Protection
+
+Secure DOM manipulation strategy:
+
+* Strict use of `textContent`
+* Regex validation before rendering
+* Avoidance of `innerHTML`
+
+This significantly **reduces the risk of DOM-based XSS**.
+
+---
+
+### Anti-Scraping Measures
+
+Contact information protection:
+
+* Base64 encoded phone number
+* Runtime decoding via JavaScript
+* Randomized delay before external redirection
+
+Purpose:
+
+* reduce automated scraping
+* reduce bot-based spam
+
+---
+
+### Tabnabbing Protection
+
+All external links use:
+
+rel="noopener noreferrer"
+
+Mitigates **reverse tabnabbing attacks**.
+
+---
+
+# Performance
+
+The site prioritizes **fast load times and minimal resource usage**.
+
+Performance characteristics:
+
+* Zero JavaScript frameworks
+* No runtime libraries
+* Minimal DOM manipulation
+* Lightweight animations optimized for 60fps
+
+This results in extremely fast rendering and low network overhead.
+
+---
+
+# Architecture
+
+The project intentionally follows a **single-document architecture**.
+
+```
+portfolio
+│
+├── index.html
+└── README.md
+```
+
+Benefits:
+
+* easier auditing
+* reduced complexity
+* minimal dependency chain
+
+---
+
+# Featured Project
+
+### Cybersec Portfolio / Blog
+
+Technical portal dedicated to:
+
+* security write-ups
+* research notes
+* technical documentation
+
+https://ibel-lagos.github.io/cybersec/
+
+---
+
+# Professional Profile
+
+Cybersecurity professional focused on building **technical tools and secure systems**.
+
+My approach merges:
+
+* modern development practices
+* security engineering principles
+* Linux-based environments
+
+**Location:** Argentina
+
+**Secure Contact:**
+[ibeltech@protonmail.com](mailto:ibeltech@protonmail.com)
+
+---
+
+# License
+
+This repository represents a **personal professional portfolio**.
+
+You may use it for inspiration or educational purposes, but please avoid copying the project structure or design directly.
