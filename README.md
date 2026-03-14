@@ -22,7 +22,7 @@ This project is more than just a landing page; it is a practical exercise in fro
 
 Explore my other technical work:
 * **[Cybersec Portfolio-Blog](https://ibel-lagos.github.io/cybersec/):** A dedicated portal for security write-ups, technical notes, and research.
-* **Automation Suite:** Custom Google Apps Script and Python solutions for critical data management.
+
 
 ---
 
