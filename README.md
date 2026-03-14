@@ -1,35 +1,40 @@
-# Secure Portfolio Landing Page
+# Ibel Lagos | Dev & Security Portfolio 🚀
 
-A high-performance, responsive landing page developed with a **Security-First** mindset. This project serves as a professional showcase for technical services, integrating defensive programming techniques to mitigate common web vulnerabilities.
+Este repositorio contiene el código fuente de mi sitio profesional. Un entorno diseñado bajo principios de **security-by-design**, alto rendimiento y una estética minimalista "hardened".
 
-## 🛡️ Security Implementation (Hardening)
-
-This project implements several security layers to ensure code integrity and user privacy:
-
-* **XSS Mitigation:** Strict use of `textContent` instead of `innerHTML` to prevent Cross-Site Scripting.
-* **Input Sanitization:** Regex-based validation for all dynamic content and localization strings.
-* **Security Headers:** Meta-tag implementation for `X-Content-Type-Options`, `X-Frame-Options` (Clickjacking protection), and `Referrer-Policy`.
-* **Contact Obfuscation:** Dynamic construction of contact links to prevent automated scraping and spam bots.
-* **Secure Navigation:** Applied `noopener` and `noreferrer` to all external links to prevent Tabnabbing attacks.
-* **Logic Encapsulation:** Entire logic wrapped in an IIFE to protect the global scope and maintain execution integrity.
-
-## 🚀 Technologies
-
-* **Language:** Vanilla JavaScript (ES6+)
-* **Styling:** CSS3 with Custom Properties and Hardware-accelerated animations.
-* **Architecture:** Zero-dependency, purely client-side.
-* **Typography:** Optimized loading of Google Fonts (Fraunces & Plus Jakarta Sans).
-
-## 🛠️ Features
-
-* **Dual Language Support:** Integrated localization (ES/EN) with secure state management.
-* **Dynamic UI:** Custom progress bar, glassmorphism header, and interactive background orbs.
-* **Responsive Design:** Fully optimized for mobile, tablet, and desktop viewports.
-* **Accessibility:** ARIA labels and semantic HTML structure.
-
-## 📋 License
-
-This project is for personal use and portfolio demonstration. Feel free to explore the security implementations.
+🔗 **Live Demo:** [https://ibel-lagos.github.io/](https://ibel-lagos.github.io/)
 
 ---
-Developed by [Ibel Lagos](https://github.com/ibel-lagos).
+
+## 🛠 Tech Stack & Hardening
+
+El proyecto no solo es una landing page, sino un ejercicio de buenas prácticas de seguridad en el front-end:
+
+* **UI/UX:** CSS dinámico con variables, animaciones optimizadas (60fps) y tipografías premium.
+* **Seguridad:** * Implementación de **Content Security Policy (CSP)** vía meta-tags.
+    * Protección contra **Tabnabbing** mediante `rel="noopener noreferrer"` en todos los links externos.
+    * **Ofuscación de datos sensibles:** Lógica en JS para proteger el contacto directo de scrapers automatizados.
+    * **Sanitización de DOM:** Uso de `textContent` y validación por Regex para prevenir ataques XSS.
+* **Performance:** Zero dependencias externas (Vanilla JS) para minimizar la superficie de ataque y mejorar el tiempo de carga.
+
+## 📂 Proyectos Destacados
+
+Además de este sitio, podés encontrar:
+* **[Cybersec Portfolio-Blog](https://ibel-lagos.github.io/cybersec/):** Mi portal de notas técnicas y análisis de seguridad.
+* **SIEM con Python/Pandas:** Herramienta de análisis de logs automatizada.
+* **Scripts de Automatización:** Soluciones personalizadas en Google Apps Script para gestión de datos críticos.
+
+---
+
+## 🛡️ Perfil Profesional
+
+Profesional en Ciberseguridad orientada al desarrollo de herramientas técnicas. Mi enfoque combina la agilidad del desarrollo moderno con el rigor de la seguridad informática.
+
+* **Localización:** Argentina.
+* **Contacto Seguro:** ibeltech@protonmail.com
+
+---
+<p align="center">
+  <img src="https://img.shields.io/badge/Security-Hardened-2ec4a0?style=flat-square" alt="Security Hardened">
+  <img src="https://img.shields.io/badge/Code-Clean-e8a030?style=flat-square" alt="Clean Code">
+</p>
