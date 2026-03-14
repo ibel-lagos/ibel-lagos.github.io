@@ -1,6 +1,6 @@
 # Ibel Lagos | Dev & Security Portfolio 🚀
 
-Este repositorio contiene el código fuente de mi sitio profesional. Un entorno diseñado bajo principios de **security-by-design**, alto rendimiento y una estética minimalista "hardened".
+This repository hosts the source code for my professional site. The environment is built from the ground up under **security-by-design** principles, high performance, and a "hardened" minimalist aesthetic.
 
 🔗 **Live Demo:** [https://ibel-lagos.github.io/](https://ibel-lagos.github.io/)
 
@@ -8,27 +8,29 @@ Este repositorio contiene el código fuente de mi sitio profesional. Un entorno 
 
 ## 🛠 Tech Stack & Hardening
 
-El proyecto no solo es una landing page, sino un ejercicio de buenas prácticas de seguridad en el front-end:
+This project is more than just a landing page; it is a practical exercise in front-end security best practices:
 
-* **UI/UX:** CSS dinámico con variables, animaciones optimizadas (60fps) y tipografías premium.
-* **Seguridad:** * Implementación de **Content Security Policy (CSP)** vía meta-tags.
-    * Protección contra **Tabnabbing** mediante `rel="noopener noreferrer"` en todos los links externos.
-    * **Ofuscación de datos sensibles:** Lógica en JS para proteger el contacto directo de scrapers automatizados.
-    * **Sanitización de DOM:** Uso de `textContent` y validación por Regex para prevenir ataques XSS.
-* **Performance:** Zero dependencias externas (Vanilla JS) para minimizar la superficie de ataque y mejorar el tiempo de carga.
+* **UI/UX:** Dynamic CSS using custom properties, 60fps optimized animations, and premium typography (Plus Jakarta Sans & Fraunces).
+* **Security Features:**
+    * **Protocol Hardening:** Implementation of `nosniff`, `DENY` (anti-clickjacking), and `no-referrer` policies via meta-tags.
+    * **Tabnabbing Protection:** Consistent use of `rel="noopener noreferrer"` on all outbound links.
+    * **Data Obfuscation:** Custom JavaScript logic to protect sensitive contact information from automated scrapers.
+    * **DOM Sanitization:** Enforced use of `textContent` and Regex validation to neutralize XSS (Cross-Site Scripting) risks.
+* **Performance:** Zero external dependencies (Vanilla JS) to minimize the attack surface and ensure near-instant load times.
 
-## 📂 Proyectos Destacados
+## 📂 Featured Projects
 
-Además de este sitio, podés encontrar:
-* **[Cybersec Portfolio-Blog](https://ibel-lagos.github.io/cybersec/):** Mi portal de proyectos personales, notas técnicas y análisis de seguridad.
-
+Explore my other technical work:
+* **[Cybersec Portfolio-Blog](https://ibel-lagos.github.io/cybersec/):** A dedicated portal for security write-ups, technical notes, and research.
+* **Automation Suite:** Custom Google Apps Script and Python solutions for critical data management.
 
 ---
 
-## 🛡️ Perfil Profesional
+## 🛡️ Professional Profile
 
-Profesional en Ciberseguridad orientada al desarrollo de herramientas técnicas. Mi enfoque combina la agilidad del desarrollo moderno con el rigor de la seguridad informática.
+Cybersecurity professional focused on building technical tools. My approach merges the agility of modern development with the rigor of information security.
 
-* **Localización:** Argentina.
-* **Contacto Seguro:** ibeltech@protonmail.com
+* **Location:** Argentina.
+* **Secure Contact:** [ibeltech@protonmail.com](mailto:ibeltech@protonmail.com)
 
+---
