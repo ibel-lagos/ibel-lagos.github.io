@@ -32,8 +32,3 @@ Profesional en Ciberseguridad orientada al desarrollo de herramientas técnicas.
 * **Localización:** Argentina.
 * **Contacto Seguro:** ibeltech@protonmail.com
 
----
-<p align="center">
-  <img src="https://img.shields.io/badge/Security-Hardened-2ec4a0?style=flat-square" alt="Security Hardened">
-  <img src="https://img.shields.io/badge/Code-Clean-e8a030?style=flat-square" alt="Clean Code">
-</p>
