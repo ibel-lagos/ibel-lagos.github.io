@@ -137,19 +137,6 @@ Benefits:
 
 ---
 
-# Featured Project
-
-### Cybersec Portfolio / Blog
-
-Technical portal dedicated to:
-
-* security write-ups
-* research notes
-* technical documentation
-
-https://ibel-lagos.github.io/cybersec/
-
----
 
 # Professional Profile
 
