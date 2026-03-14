@@ -20,9 +20,8 @@ El proyecto no solo es una landing page, sino un ejercicio de buenas prácticas 
 ## 📂 Proyectos Destacados
 
 Además de este sitio, podés encontrar:
-* **[Cybersec Portfolio-Blog](https://ibel-lagos.github.io/cybersec/):** Mi portal de notas técnicas y análisis de seguridad.
-* **SIEM con Python/Pandas:** Herramienta de análisis de logs automatizada.
-* **Scripts de Automatización:** Soluciones personalizadas en Google Apps Script para gestión de datos críticos.
+* **[Cybersec Portfolio-Blog](https://ibel-lagos.github.io/cybersec/):** Mi portal de proyectos personales, notas técnicas y análisis de seguridad.
+
 
 ---
 
