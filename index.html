@@ -44,19 +44,20 @@
         applyLocalization();
     });
 
-    document.getElementById('action-trigger').addEventListener('click', function() {
-        const p1 = "542";
-        const p2 = "2845";
-        const p3 = "66839";
-        const target = p1 + p2 + p3;
-        const text = currentLang === "es" 
-            ? "Hola Ibel, vi tu portfolio y quería consultarte por un proyecto técnico." 
-            : "Hi Ibel, I saw your portfolio and I'd like to ask about a technical project.";
-        const wait = Math.floor(Math.random() * 400) + 150;
-        setTimeout(() => {
-            window.open(`https://wa.me/${target}?text=${encodeURIComponent(text)}`, '_blank', 'noopener,noreferrer');
-        }, wait);
-    });
+  document.getElementById('action-trigger').addEventListener('click', function() {
+
+    const encoded = "NTQyMjg0NTY2ODM5";
+    const target = atob(encoded);
+
+    const text = currentLang === "es"
+        ? "Hola Ibel, vi tu portfolio y quería consultarte por un proyecto técnico."
+        : "Hi Ibel, I saw your portfolio and I'd like to ask about a technical project.";
+
+    setTimeout(() => {
+        window.open(`https://wa.me/${target}?text=${encodeURIComponent(text)}`, '_blank', 'noopener,noreferrer');
+    }, Math.random()*400+150);
+
+});
 
     window.addEventListener('scroll', () => {
         const docH = document.documentElement.scrollHeight - window.innerHeight;
